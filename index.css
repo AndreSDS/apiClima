@@ -1,0 +1,86 @@
+html{
+  box-sizing: border-box;
+}
+body{
+  background-color: gainsboro;
+  font-family: helvetica, sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  line-height: 1.5;
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+#container{
+  width: 595px;
+  height: 424px;
+  margin: 7% auto;
+  border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: repeat(6,1fr);
+  align-items: center;
+  text-align: center;
+}
+#local{
+  grid-column: 2;
+  grid-row: 1;
+}
+#fundo{
+  width: 50px;
+  height: 50px;
+  background-position: top;
+  margin: 0 auto;
+  display: inline-block;
+  grid-column: 2;
+  grid-row: 2;
+}
+#temp{
+  grid-column: 2;
+  grid-row: 3;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #d8d4d4;
+  color: darkcyan;
+}
+span{
+  display: inline-block;
+  padding: 0 5px;
+}
+.temperatura{
+  grid-column: 2;
+  grid-row: 4;
+}
+#desc{
+    grid-column: 2;
+    grid-row: 5;
+}
+#changeC{
+  display: none;
+}
+#changeC,#changeF{
+  grid-column: 3;
+  grid-row: 6;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: firebrick;
+  border: none;
+  box-shadow: .5px .5px .5px;
+  color: #f5aaaa;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 600px) {
+  body{
+    padding: 0 1rem;
+  }
+  #container{
+    width: 100%;
+    background-position: right;
+  }
+}
