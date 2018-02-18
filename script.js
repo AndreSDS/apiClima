@@ -27,13 +27,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById('temp-max').innerHTML = "Max - "+data.main.temp_max+" &deg;c";//setando temperatura máxima
             document.getElementById('fundo').style.backgroundImage = "url("+data.weather[0].icon+")";//setando ícone do clima
 
-              if (data.weather[0].main == "Clouds") {
+            switch (data.weather[0].main) {
+              case "Clouds":
                 document.getElementById('desc').innerHTML = "Nublado";
-                document.getElementById('container').style.backgroundImage = "url("+"http://g1.globo.com/Noticias/SaoPaulo/foto/0,,21876736-FMM,00.jpg"+")";
-              }else if(data.weather[0].main == "Drizzle"){
+                document.getElementById('container').style.backgroundImage = "url("+"http://www.freephotosbank.com/photographers/photos1/15/med_ap104s4104.jpg"+")";
+                break;
+             case "Drizzle":
                 document.getElementById('desc').innerHTML = "Garoando";
-                document.getElementById('container').style.backgroundImage = "url("+"https://1.bp.blogspot.com/_6XOJ31w0PQE/S8gqfp28UdI/AAAAAAAAAS4/j9ACImQvk-w/s1600/nuvens+negras.jpg"+")";
-              }//alterando imagem de fundo de acordo com o clima
+                document.getElementById('container').style.backgroundImage = "url("+"https://images.freeimages.com/images/large-previews/2a0/lake-view-the-rain-fades-1390648.jpg"+")";
+               break;
+            case "Rain":
+                document.getElementById('desc').innerHTML = "Chuva fina";
+                document.getElementById('container').style.backgroundImage = "url("+"https://images.freeimages.com/images/large-previews/1b3/raindrops-3-1197575.jpg"+")";
+              break;
+            case "Clear":
+                document.getElementById('desc').innerHTML = "Céu limpo";
+                document.getElementById('container').style.backgroundImage = "url("+"http://www.freephotosbank.com/photographers/photos1/34/med_ap104s4017.jpg"+")";
+              break;
+              default:
+              console.log("Sem imagens");
+            }//alterando imagem de fundo de acordo com o clima
 
             document.getElementById('changeF').addEventListener('click',function () {
               document.getElementById('temp').innerHTML = Math.floor(data.main.temp * 33.8) + "&deg;f";//transformando em farenheit
